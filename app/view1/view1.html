@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<-- index.html -->
+<html>
+<head lang="en">
+
+    <!-- CSS -->
+    <!-- load up bootstrap and add some spacing -->
+    <link rel="stylesheet" href="../../libs/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style>
+        body		 { padding-top:50px; }
+        form			{ margin-bottom:50px; }
+    </style>
+
+    <!-- JS -->
+    <!-- load up angular and our custom script -->
+    <script src="../../libs/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        //关于复选框的操作问题
+        $(function(){
+            $('form').click(function(event) {
+                // Act on the event
+                var arr=[];
+                $('input').each(function(index, el) {
+                    if ($(this).prop('checked')) {
+                        arr.push(index)
+                    };
+                });
+                console.log(arr)
+            })
+        })
+        /*$(function(){
+            var arr=[];
+            $("input").each(function (index) {
+                //alert(index);
+                console.log($(this).prop("checked"));
+                if($(this).prop("checked")){
+                    arr.push(index);
+                    console.log(arr);
+                }
+               // console.log(arr);
+            });
+        })*/
+    </script>
+
+</head>
+<body>
+    <form class="ais">
+        <input  name="" type="checkbox"/>
+        <input  name="" type="checkbox"/>
+        <input  name="" type="checkbox"/>
+        <input  name="" type="checkbox"/>
+        <input  name="" type="checkbox"/>
+        <input name="" type="checkbox"/>
+        <input  name="" type="checkbox"/>
+    </form>
+</body>
+</html>

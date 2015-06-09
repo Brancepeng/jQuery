@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <script type="text/javascript" src="../../libs/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+ <button id="btn1">Click1</button>
+ <button id="btn2">Click2</button>
+ <button id="btn3">Click3</button>
+<script>
+    //$(function(){})相当于window.onload,即加载完html文档标签后会马上执行的代码块.
+    //1.选取button;2.为button添加onclick响应函数
+    $(function(){
+        $("button").click(function(){
+            //3.弹出Hello World!
+            alert("Hello World!");
+        });
+
+        //jQuery对象和DOM对象转换
+        //1.获取jQuery对象
+        var $btn = $('button');
+        //2.jQuery队形是一个数组.
+       // alert($btn.length);
+        //3.可以通过 数组的下标转为DOM对象
+        alert($btn[0].firstChild.nodeValue);
+
+        //DOM对象转化为jQuery对象,使用$()包装即可.
+        //1.选取一个DOM对象.
+        var btn = document.getElementById
+        //2.zhuanhua
+        alert("123"+$(btn).text());
+    })
+    /*var returnNode = document.getElementById("btn1");
+    var count = returnNode.childNodes.length;
+    var last = returnNode.firstChild.appendChild("input");
+    var count = last.childNodes.length;*/
+</script>
+</body>
+</html>

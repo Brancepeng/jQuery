@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuey事件绑定</title>
+    <script type="text/javascript" src="../libs/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>wgrw</th>
+            <th>sfds</th>
+            <th>sdfs</th>
+            <th>sdfbs</th>
+        </tr>
+        <tr>
+            <td id="as">ssfs</td>
+            <td>aa</td>
+            <td>dfs</td>
+            <td>wew</td>
+        </tr>
+        <tr>
+            <td>wew</td>
+            <td>gd</td>
+            <td>fd</td>
+            <td>sfs</td>
+        </tr>
+        <tr>
+            <td>qq</td>
+            <td>ew</td>
+            <td>wew</td>
+            <td>ew</td>
+        </tr>
+    </table>
+<script type="text/javascript">
+        $("#as").on("click",function(event){//绑定td元素上的click元素,单击时弹出提示;
+            alert(1);
+        })
+    $("#as").off('click'); //禁用td元素上的click事件
+</script>
+</body>
+</html>

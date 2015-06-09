@@ -1,0 +1,91 @@
+1.什么是jQuery对象?
+  jQuery对象就是通过jQuery($())包装DOM对象后产生的对象.jQuery对象是jQuery所独有的.
+  jQuery对象不能使用DOM对象的属性和方法,反之,DOm对象也不能使用jQuery对象的属性和方法.
+  如果一个对象是jQuery中的对象,那么就可以使用jQuery中的方法:$('#persontab').html();
+  约定:如果获取的是jQuery对象,那么要在变量前加上$.
+  - var $variable =jQuery对象;
+  - var variable = DOM对象;
+  2.jQuery对象如何转化成DOM对象?
+  jQuery对象是一个数组对象,可以通过[index]的方法获得相应的DOM对象:
+   var $cr = ${'#cr'};
+   var cr = $cr[0];
+   也可以使用jQuery中的get(index)方法来得到相应的DOM对象.
+   var $cr = ${'#cr'};
+   var cr = $cr.get(0);
+2.什么是过滤选择器?
+  首先,在jQuery中,什么是选择器:见ITeye.com 我的博客
+  过滤选择器主要是通过特定的过滤规则来筛选出所需的 DOM 元素, 该选择器都以 “:” 开头
+  按照不同的过滤规则, 过滤选择器可以分为基本过滤, 内容过滤, 可见性过滤, 属性过滤, 子元素
+  过滤和表单对象属性过滤选择器.
+3.jquery中(function($){...})(jQuery)是什么?
+ (function(arg){...})(param)
+ 这 就相当于定义了一个参数为arg的匿名函数，并且将param作为参数来调用这个匿名函数
+ 而(function($){...}) (jQuery)则是一样的，之所以只在形参使用$，是为了不与其他库冲突，所以实参用jQuery
+ 其实就等于
+ var fn = function($){....};
+ fn(jQuery);
+ 其实可以这么理解，不过要注意的是fn是不存在的
+ 那个函数直接定义，然后就运行了。就“压缩”成下面的样子了
+ (function($){...})(jQuery)
+
+ 简单理解是(function($){...})(jQuery)用来定义一些需要预先定义好的函数
+ $(function(){ })则是用来在DOM加载完成之后运行执行那些预行定义好的函数
+
+ jQuery(function(){ }); //也可以等价于$(function(){});
+ 全写为
+ jQuery(document).ready(function(){ }); //也可以等价于$(document).ready(function(){});
+ 意义为在DOM加载完毕后执行了ready()方法。
+
+
+ (function(){ })(jQuery)；
+ 其实际上是执行()(para)匿名方法,只不过是传递了jQuery对象。
+
+ jQuery(function(){});用于存放操作DOM对象的代码，执行其中代码时DOM对象已存在。不可用于存放开发插件的代码，
+ 因 为jQuery对象没有得到传递，外部通过jQuery.method也调用不了其中的方法（函数）。
+
+ (function(){})(jQuery)；用于存放开发插件的代码，执行其中代码时DOM不一定存在，所以直接自动执行DOM操作的代码
+
+
+
+ 4.什么是DOM?
+ DOM:Document Object Model-文档对象模型,一种与浏览器,平台,语言无关的接口,使用该接口可以轻松的访问页面中所有基本组件.
+ DOM操作的分类:
+   DOM Core:DOM Core并不专属于javascript,任何一种支持DOM的程序设计语言都可以使用它,它不仅可以用于处理网页,
+   还可以处理XML文件.
+ DOM中定义了一个接口,该接口由DOM中所有的节点类型实现,而这个Node接口在javascript中是作为Node类型实现的.javascript中
+ 所有的节点类型都继承Node类型.因此所有的节点类型都共享相同的基本属性和方法.
+ Node类型的两个基本属性:nodeName和nodeValue:如果Node类型为元素或者文本节点,
+ if(someNode.nodeType == 1){value  = someNode.nodeName} //此时nodeType为1,nodeName的值
+ 是元素的标签名.nodeValue值始终未null.
+ 关于文档中节点关系:可以用传统的家族关系来描述,相当于把文档书比喻成家谱.
+ 每个节点都有一个childNodes属性.这个属性保存着一个NodeList对象.NodeList是一个类数组对象.
+ 用于保存一组有序的节点,可以通过位置来访问这些节点.虽然可以通过数组的语法来访问NodeList的值,
+ 但是它并非是Array的实例,NodeLIst对象的独特之处在于,它实际上是基于DDM结构动态执行查询的结果.,因此,
+ DOM结构的变化能够反映在NodeLIst对象中.
+ 5.如何操作文档的节点?
+ a.查找节点:查找属性节点可以通过jQuery选择器完成,操作属性节点可以通过查找所需元素之后,调用jQuery对象的attr()方法来获取它的各种属性值.
+ DOM提供了一些操作节点的方法.常见的方法有:appendChild(),用于向childNodes列表的末尾添加一个节点.添加完成后,
+ childNodes列表会自动得到更新,appendChild()返回新增的节点.
+
+
+
+
+
+ 6.jQuery对象的几个方法:
+ a.获取或设置表单元素的value属性值:val()方法
+ //设置值:$(":text:enabled").val("尚硅谷");
+ //获取值:$(":text:enabled").val();
+ b.attr()方法,和val()方法类似
+ 返回文档中所有图像的src属性值。
+ jQuery 代码:
+ $("img").attr("src");
+为所有图像设置src和alt属性。
+jQuery 代码:
+$("img").attr({ src: "test.jpg", alt: "Test Image" });
+为所有图像设置src属性。
+jQuery 代码:
+$("img").attr("src","test.jpg");
+把src属性的值设置为title属性的值。
+jQuery 代码:
+$("img").attr("title", function() { return this.src });
+c.each方法:
